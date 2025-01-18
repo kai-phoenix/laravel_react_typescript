@@ -9,6 +9,7 @@ const PostList: React.FC = () => {
     // APIからPostリストを取得
     useEffect(()=>{
         apiClient.get("/posts").then((response)=>{
+            console.log(response.data);
             setPosts(response.data);
         }).catch((error)=>{
             console.log("Error detecting:",error);
