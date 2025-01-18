@@ -10,7 +10,7 @@ class PostController extends Controller
     // 全投稿を取得
     public function index()
     {
-        return Post::all();
+        return response()->json(Post::all());;
     }
 
     // public function create()

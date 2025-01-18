@@ -9,7 +9,8 @@ const PostList: React.FC = () => {
     // APIからPostリストを取得
     useEffect(()=>{
         apiClient.get("/posts").then((response)=>{
-            console.log(response.data);
+            console.log('Request URL:', 'http://127.0.0.1:8000/api/posts');
+            console.log('API Response:', response.data); 
             setPosts(response.data);
         }).catch((error)=>{
             console.log("Error detecting:",error);
