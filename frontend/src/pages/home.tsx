@@ -2,12 +2,12 @@ import React from "react";
 import PostList from "../components/PostList";
 import PostForm from "../components/PostForm";
 
-const Home: React.FC = () => {
+function Home() {
     return (
-        <div>
-            <PostForm/>
-            <PostList/>
-        </div>
+    <div>
+        <h1>Welcome to the Home Page</h1>
+        <p>This is the home page.</p>
+    </div>
     );
 }
 

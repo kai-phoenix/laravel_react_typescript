@@ -23,7 +23,6 @@ const PostList: React.FC = () => {
             <ul>
                 {posts.map((post)=>(
                     <li key={post.id}>
-                        {post.title} - {post.completed?"Done":"Pending"}
                         <h2>{post.title}</h2>
                         <p>{post.content}</p>
                         <p>Status:{post.completed?"Completed":"Pending"}</p>

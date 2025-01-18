@@ -18,6 +18,10 @@ HTTPリクエスト、ルーティングを可能にするライブラリをイ�
 
 npm install axios react-router-dom
 
+Typescriptの型定義をインストール
+
+npm install --save-dev @types/react-router-dom
+
 動作させるにはfrontendディレクトリで
 
 npm run dev
