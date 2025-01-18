@@ -10,6 +10,8 @@ const PostList: React.FC = () => {
     useEffect(()=>{
         apiClient.get("/posts").then((response)=>{
             setPosts(response.data);
+        }).catch((error)=>{
+            console.log("Error detecting:",error);
         });
     },[]);
 
@@ -20,6 +22,9 @@ const PostList: React.FC = () => {
                 {posts.map((post)=>(
                     <li key={post.id}>
                         {post.title} - {post.completed?"Done":"Pending"}
+                        <h2>{post.title}</h2>
+                        <p>{post.content}</p>
+                        <p>Status:{post.completed?"Completed":"Pending"}</p>
                     </li>
                 ))}
             </ul>

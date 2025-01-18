@@ -30,6 +30,10 @@ composer create-project laravel/laravel backend --prefer-dist
 
 で./backendにlaravelプロジェクトを作成
 
+動作しないようなら依存関係を以下コマンドでインストール
+
+composer install
+
 php artisan make:model Post
 
 でPostモデルを作成
@@ -53,6 +57,28 @@ php artisan install:api
 を実行しAPIトークン認証ガードのLaravel Sanctumをインストール
 
 api.phpに/postsへのルーティングを記述
+
+api/postsがjsonを返すことがわかったのでPostテーブルに手動でデータ追加
+
+php artisan tinker
+\App\Models\Post::create(['title' => 'Sample Post', 'content' => 'This is a sample.']);
+
+api/postsにて以下のjsonが返ることを確認
+
+```
+[{"id":1,"title":"Sample Post","content":"This is a sample.","completed":0,"created_at":"2025-01-18T06:20:44.000000Z","updated_at":"2025-01-18T06:20:44.000000Z"}]
+```
+
+フロント側からバックエンド側へ通信を許可する設定をconfig/cors.phpに追加
+Laravel7以降はHandleCorsに設定されているが学習のために作ることに
+
+php artisan config:publish cors
+
+Laravel11は過去のものと設定が大幅変更されていることをここで知る
+https://zenn.dev/pcs_engineer/articles/laravel11-faq
+
+app/Http/Kernel.phpからbootstrap/app.phpに変わったため、middlewareを記述
+
 
 動作させるにはbackendディレクトリで
 
