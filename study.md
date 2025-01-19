@@ -83,6 +83,15 @@ https://zenn.dev/pcs_engineer/articles/laravel11-faq
 
 app/Http/Kernel.phpからbootstrap/app.phpに変わったため、middlewareを記述
 
+$middleware->use([
+
+    \Illuminate\Http\Middleware\HandleCors::class,
+
+    ]);
+
+その後、configの設定を反映させるために以下のコマンドを実行
+
+php artisan config:cache
 
 動作させるにはbackendディレクトリで
 
