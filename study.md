@@ -22,6 +22,16 @@ Typescriptの型定義をインストール
 
 npm install --save-dev @types/react-router-dom
 
+デザインにtailwindcssを利用する
+tailwind.config.js,postcss.config.jsを作成
+(url:https://tailwindcss.com/docs/installation/using-postcss)
+ドキュメント参考にインストールコマンドを叩く
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+npx tailwindcss init
+npm start
+
 動作させるにはfrontendディレクトリで
 
 npm run dev
@@ -121,3 +131,21 @@ Reactアプリから外部へデータを送信(POST)したり、
 Reactでルーティング(ページ遷移)を実現し、URLごとに異なるコンポーネントを表示するため
 用途
 異なるURL(/home,/about)へアクセスした時、対応するコンポーネントをレンダリング
+
+
+## App.cssとindex.cssの違い
+
+### index.css
+
+目的
+Reactでプロジェクト全体に影響を与えるグローバルスタイルを定義
+Reactのエントリーポイント(index.js,index.tsx)で読まれ、ページ全体に読まれるスタイルの定義を行う
+用途
+ページ全体に読まれるスタイル(ボディ,HTMLタグ)のスタイル定義を行う
+
+### App.css
+
+目的
+App.tsx固有のスタイルを定義
+用途
+プロジェクトのルートコンポーネントのスタイリングに使用
